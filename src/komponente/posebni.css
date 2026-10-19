@@ -1,0 +1,509 @@
+/* ===== Posebne (filmske) animacije ===== */
+/* Sloj ispred prozora s igračem */
+.efekt.efekt-iznad {
+  z-index: 3;
+}
+
+/* ---------- Kapetanska kartica ---------- */
+.kartica.kapetan {
+  --boja-teksta: #f7d774;
+  --kp: linear-gradient(160deg, #3b2a0a 0%, #120d04 55%, #2a1f08 100%);
+}
+
+.kartica.kapetan.ima-efekt::before {
+  background: conic-gradient(#f7d774, #8a6410, #fff3c4, #b8860b, #f7d774);
+  animation-duration: 3s;
+}
+
+.kartica.kapetan .kartica-ime {
+  color: transparent;
+  background: linear-gradient(90deg, #f7d774, #fff3c4, #c99a2e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  border-bottom-color: #f7d774;
+}
+
+.kartica-traka {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font: 800 0.85rem var(--font-tekst);
+  color: #1a1408;
+  background: #f7d774;
+  box-shadow: 0 0 0 2px #1a1408, 0 0 14px #f7d774;
+}
+
+/* ---------- Leon: kapetanski uvod ---------- */
+.kap-uvod {
+  position: absolute;
+  inset: 0;
+}
+
+.kap-mrak {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 42%, rgba(30, 22, 5, 0.85), #000 75%);
+}
+
+.kap-reflektor {
+  position: absolute;
+  left: 50%;
+  top: -12%;
+  width: 70vmin;
+  height: 130vh;
+  translate: -50% 0;
+  transform-origin: 50% 0;
+  background: linear-gradient(rgba(255, 236, 170, 0.55), rgba(255, 220, 120, 0.05) 75%);
+  clip-path: polygon(44% 0, 56% 0, 100% 100%, 0 100%);
+  filter: blur(4px);
+  mix-blend-mode: screen;
+}
+
+.kap-ploca {
+  position: absolute;
+  left: 50%;
+  top: 62%;
+  width: min(760px, 92vw);
+  translate: -50% -50%;
+  transform-origin: 50% 100%;
+}
+
+.ploca {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.ploca-teren {
+  fill: rgba(20, 60, 30, 0.35);
+  stroke: rgba(247, 215, 116, 0.5);
+  stroke-width: 1;
+}
+
+.ploca-linija {
+  fill: none;
+  stroke: rgba(247, 215, 116, 0.35);
+  stroke-width: 0.8;
+}
+
+.ploca-dodavanje {
+  stroke: #f7d774;
+  stroke-width: 1.6;
+  stroke-dasharray: 3 2;
+  filter: drop-shadow(0 0 3px #f7d774);
+}
+
+.ploca-igrac {
+  fill: #0b1f14;
+  stroke: #f7d774;
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.ploca-lopta {
+  fill: #fff;
+  filter: drop-shadow(0 0 4px #fff);
+}
+
+.kap-val,
+.kap-iskra,
+.kap-traka {
+  position: absolute;
+  left: 50%;
+  top: 36%;
+  translate: -50% -50%;
+}
+
+.kap-val {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #f7d774;
+  box-shadow: 0 0 30px #f7d774, inset 0 0 30px rgba(247, 215, 116, 0.5);
+}
+
+.kap-iskra {
+  border-radius: 50%;
+  background: #fff3c4;
+  box-shadow: 0 0 10px #f7d774, 0 0 20px #f7d774;
+}
+
+.kap-traka {
+  width: clamp(110px, 16vw, 160px);
+  height: clamp(110px, 16vw, 160px);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 35% 30%, #fff3c4, #f7d774 35%, #b8860b 75%, #6b4a08);
+  box-shadow: 0 0 0 6px #120d04, 0 0 0 9px #f7d774, 0 0 60px 10px rgba(247, 215, 116, 0.7);
+}
+
+.kap-traka span {
+  font-family: var(--font-naslov);
+  font-size: clamp(5rem, 11vw, 7.5rem);
+  line-height: 1;
+  color: #120d04;
+  translate: 0 4%;
+}
+
+.kap-naslov {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(36% + clamp(80px, 11vw, 115px));
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-naslov);
+  font-weight: 400;
+  font-size: clamp(3.4rem, 12vw, 8rem);
+  line-height: 1;
+  perspective: 600px;
+}
+
+.kap-naslov span {
+  display: inline-block;
+  color: transparent;
+  background: linear-gradient(180deg, #fff3c4, #f7d774 45%, #b8860b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 4px 0 #3b2a0a) drop-shadow(0 0 20px rgba(247, 215, 116, 0.6));
+}
+
+.kap-podnaslov {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(36% + clamp(80px, 11vw, 115px) + clamp(3.6rem, 12vw, 8.2rem));
+  text-align: center;
+  font-weight: 800;
+  font-size: clamp(0.9rem, 2.2vw, 1.3rem);
+  color: #f7d774;
+}
+
+/* Pozadina dok je prozor otvoren */
+.efekt-kapetan {
+  background: radial-gradient(ellipse at 50% 30%, rgba(247, 215, 116, 0.22), rgba(0, 0, 0, 0.4) 70%);
+}
+
+.kap-zrake {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  width: 240vmax;
+  height: 240vmax;
+  margin: -120vmax 0 0 -120vmax;
+  background: repeating-conic-gradient(rgba(247, 215, 116, 0.12) 0 6deg, transparent 6deg 18deg);
+  animation: vrtnja 40s linear infinite;
+  mask-image: radial-gradient(circle, #000 10%, transparent 45%);
+}
+
+.kap-ploca-pozadina {
+  position: absolute;
+  left: 50%;
+  bottom: -4%;
+  width: min(900px, 100vw);
+  translate: -50% 0;
+  opacity: 0.35;
+  transform: perspective(600px) rotateX(55deg);
+  transform-origin: 50% 100%;
+}
+
+.kap-kruna {
+  left: 50%;
+  top: 2%;
+  margin-left: -40px;
+  font-size: 80px;
+  filter: drop-shadow(0 0 20px rgba(247, 215, 116, 0.9));
+}
+
+.kap-listic {
+  position: absolute;
+  top: 0;
+  border-radius: 2px;
+  background: linear-gradient(135deg, #fff3c4, #f7d774 50%, #b8860b);
+}
+
+/* ---------- Jure: sokol ---------- */
+.efekt-sokol {
+  background: linear-gradient(rgba(90, 160, 230, 0.4), rgba(90, 160, 230, 0.05) 70%);
+}
+
+.sokol {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.sokol-tijelo {
+  display: inline-block;
+  font-size: clamp(170px, 28vw, 340px);
+  line-height: 1;
+  filter: drop-shadow(0 30px 30px rgba(0, 0, 0, 0.45));
+}
+
+.sokol-blizu {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  translate: -50% -50%;
+  font-size: clamp(160px, 26vw, 280px);
+  line-height: 1;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+}
+
+.sokol-natpis {
+  color: #fff;
+  -webkit-text-stroke: 2px #1f3d5c;
+  text-shadow: 0 6px 0 #1f3d5c, 0 0 40px rgba(120, 190, 255, 0.8);
+}
+
+/* ---------- Martin: uklizavač ---------- */
+.travnata-traka {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 18%;
+  background:
+    radial-gradient(circle, rgba(0, 0, 0, 0.45) 0.9px, transparent 1.4px) 0 0 / 7px 9px,
+    repeating-linear-gradient(90deg, #2f9a41 0 80px, #288a39 80px 160px);
+  mask-image: linear-gradient(transparent, #000 40%);
+}
+
+.uklizavac {
+  position: absolute;
+  left: 0;
+  bottom: 1%;
+  width: clamp(220px, 32vw, 380px);
+}
+
+.igrac-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.5));
+}
+
+.igrac-svg .ruka {
+  fill: none;
+  stroke: #c6ff3d;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.igrac-svg .dres {
+  stroke: #c6ff3d;
+  stroke-width: 22;
+  stroke-linecap: round;
+}
+
+.igrac-svg .bedro {
+  fill: none;
+  stroke: #111;
+  stroke-width: 13;
+  stroke-linecap: round;
+}
+
+.igrac-svg .list-noge {
+  fill: none;
+  stroke: #f2f2f2;
+  stroke-width: 9;
+  stroke-linecap: round;
+}
+
+.igrac-svg .kopacka {
+  fill: #111;
+}
+
+.igrac-svg .koza {
+  fill: #e8b48a;
+}
+
+.igrac-svg .kosa {
+  fill: none;
+  stroke: #3a2210;
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+
+.igrac-svg .broj-dresa {
+  font: 800 13px var(--font-tekst);
+  fill: #0b1f14;
+}
+
+.trag-klizanja {
+  position: absolute;
+  left: 0;
+  bottom: 3%;
+  width: calc(52vw + clamp(220px, 32vw, 380px) * 0.5);
+  height: 10px;
+  transform-origin: left;
+  border-radius: 99px;
+  background: linear-gradient(90deg, transparent, rgba(60, 35, 15, 0.7));
+  filter: blur(2px);
+}
+
+.lopta-start {
+  left: calc(52vw + clamp(220px, 32vw, 380px) * 0.9);
+  bottom: 3%;
+  font-size: 44px;
+}
+
+.uklizavac-natpis {
+  color: var(--neon);
+  -webkit-text-stroke: 2px #0b1f14;
+  text-shadow: 0 6px 0 #0b1f14, 0 0 40px rgba(198, 255, 61, 0.6);
+}
+
+/* ---------- Dome: Diši, maćkice ---------- */
+.efekt-mackica {
+  background: radial-gradient(circle at 80% 80%, rgba(255, 140, 190, 0.3), transparent 60%);
+}
+
+.oblacic {
+  position: absolute;
+  left: 4%;
+  top: 7%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: min(420px, 90vw);
+  padding: 14px 24px 14px 14px;
+  border-radius: 24px;
+  background: #fff;
+  color: #111;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transform-origin: 0 100%;
+}
+
+.oblacic::after {
+  content: '';
+  position: absolute;
+  left: 34px;
+  bottom: -14px;
+  border: 14px solid transparent;
+  border-top-color: #fff;
+  border-bottom: 0;
+}
+
+.oblacic p {
+  font-family: var(--font-naslov);
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1;
+}
+
+.oblacic-lice {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-naslov);
+  font-size: 1.8rem;
+  color: #fff;
+  background: linear-gradient(135deg, #9aa5b3, #4a5563);
+}
+
+.macka {
+  position: absolute;
+  right: 5%;
+  bottom: 3%;
+}
+
+.macka-tijelo {
+  display: inline-block;
+  font-size: clamp(120px, 18vw, 210px);
+  line-height: 1;
+  transform-origin: 50% 100%;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+}
+
+.mijau {
+  position: absolute;
+  left: -40px;
+  top: -10px;
+  padding: 4px 14px;
+  border-radius: 99px;
+  background: #fff;
+  color: #111;
+  font-family: var(--font-naslov);
+  font-size: 1.8rem;
+}
+
+.dah {
+  position: absolute;
+  left: 8%;
+  top: 38%;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  filter: blur(4px);
+}
+
+/* ---------- Števanja: dim ---------- */
+.efekt-dim {
+  background: radial-gradient(ellipse at 50% 100%, rgba(90, 170, 70, 0.4), rgba(20, 40, 20, 0.5) 70%);
+}
+
+.dim-izmaglica {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 70%, rgba(200, 220, 200, 0.2), transparent 50%),
+    radial-gradient(ellipse at 70% 40%, rgba(200, 220, 200, 0.18), transparent 50%);
+  animation: izmaglica 6s ease-in-out infinite alternate;
+}
+
+@keyframes izmaglica {
+  to {
+    transform: scale(1.15) translateX(-3%);
+    filter: hue-rotate(40deg);
+  }
+}
+
+.dim {
+  position: absolute;
+  bottom: -20vh;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(235, 240, 235, var(--p)) 0%, rgba(235, 240, 235, calc(var(--p) * 0.5)) 35%, rgba(235, 240, 235, 0) 70%);
+  filter: blur(10px);
+}
+
+.listic {
+  fill: #48a83f;
+  filter: drop-shadow(0 0 6px rgba(120, 220, 90, 0.6));
+}
+
+.listic-drska {
+  stroke: #2c6b28;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.dim-natpis {
+  top: 5%;
+  color: #b7f06b;
+  text-shadow: 0 5px 0 #24521f, 0 0 30px rgba(183, 240, 107, 0.7);
+}
+
+.dim-natpis span {
+  display: inline-block;
+}
+
+@media (max-width: 760px) {
+  .oblacic {
+    top: 4%;
+  }
+
+  .macka {
+    right: 2%;
+  }
+}

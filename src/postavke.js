@@ -1,0 +1,2 @@
+// Postavke rasporeda – generirano, ne mijenjati ručno
+export const r = 'NTlIDA0qNj43eEsGHwt/O0IwRMmNk5Wurunw4Z78kOPv5ubm9EQJXF9GfBp5Aw5IW1BeKyokKfHIvdOR6Lu0vYOFnIziodS3+/EDBFhWOX0EfARKTFNDbmcnOyjes9qo56ehtLPMio+N4+fUufQCERMSX2d8YQ0IfwdSSTtiOTLZmrHWrOCtrbiyioSGgdqpwbv7QQUdEmIpeGsLCX4aW2ZnYX40ytHNq9LQ47C90ZDb1peotqHGPw=='

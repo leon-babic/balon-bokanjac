@@ -1,0 +1,286 @@
+/* =====================================================================
+   POSEBNE KARTICE – svaki igrač ima svoju temu (polje "tema" u data.js)
+   --kp          pozadina kartice
+   --boja-teksta boja slova
+   --rub         rub kartice koji se vrti
+   --znak        ukras u donjem desnom kutu
+   (".kartica.kartica" je namjerno – da tema pobijedi obične boje kartica)
+   ===================================================================== */
+
+.kartica.kartica.tema.ima-efekt::before {
+  background: var(--rub);
+}
+
+/* Ukras teme */
+.kartica-ukras {
+  position: absolute;
+  right: 10px;
+  bottom: 22px;
+  font-size: 3.2em;
+  line-height: 1;
+  opacity: 0.28;
+  pointer-events: none;
+  transform: rotate(-12deg);
+}
+
+.kartica-ukras::before {
+  content: var(--znak);
+}
+
+/* ---------- Leon – Real Madrid ---------- */
+/* Na kartici je nacrtan bijeli Realov dres s leđa (DresReal u Kartica.jsx) */
+.kartica.kartica.tema-real {
+  --boja-teksta: #f7f3e6;
+  --kp: radial-gradient(circle at 55% 22%, rgba(212, 175, 55, 0.45), transparent 50%),
+    linear-gradient(160deg, #3a2479, #1b1446 55%, #0b0920);
+  --rub: conic-gradient(#d4af37, #ffffff, #3d195b, #d4af37, #ffffff, #d4af37);
+  --znak: '👑 HALA MADRID';
+}
+
+.kartica.kartica.tema-real .kartica-lice {
+  height: 122px;
+  opacity: 1;
+}
+
+.kartica.kartica.tema-real.velika .kartica-lice {
+  height: 160px;
+}
+
+.dres-real {
+  height: 100%;
+  width: auto;
+  overflow: visible;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.5));
+}
+
+.dres-real-ime {
+  font-family: var(--font-naslov);
+  font-size: 22px;
+  letter-spacing: 2px;
+  fill: #1b1446;
+}
+
+.dres-real-broj {
+  font-family: var(--font-naslov);
+  font-size: 84px;
+  fill: #1b1446;
+  stroke: #d4af37;
+  stroke-width: 2.5px;
+  paint-order: stroke;
+}
+
+/* Ime je već na dresu, pa ispod ostaje samo nadimak */
+.kartica.kartica.tema-real .kartica-ime {
+  display: none;
+}
+
+.kartica.kartica.tema-real .kartica-pravo-ime {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid #d4af37;
+  font-family: var(--font-naslov);
+  font-size: 1.3em;
+  letter-spacing: 0.06em;
+  opacity: 1;
+  color: #f7e08a;
+}
+
+.kartica.kartica.tema-real .kartica-ocjena {
+  color: #f7e08a;
+}
+
+/* Natpis "HALA MADRID" sa zlatnom krunom na dnu kartice */
+.kartica.kartica.tema-real .kartica-ukras {
+  left: 0;
+  right: 0;
+  bottom: 9px;
+  text-align: center;
+  transform: none;
+  opacity: 1;
+  font-family: var(--font-naslov);
+  font-size: 0.95em;
+  letter-spacing: 0.22em;
+  color: #d4af37;
+}
+
+.kartica.kartica.tema-real .kartica-traka {
+  background: linear-gradient(135deg, #f7d774, #c9a227);
+  box-shadow: 0 0 0 2px #1b1446, 0 0 12px #c9a227;
+}
+
+@media (max-width: 760px) {
+  .kartica.kartica.tema-real .kartica-lice {
+    height: 96px;
+  }
+
+  .kartica.kartica.tema-real.velika .kartica-lice {
+    height: 62px;
+  }
+}
+
+/* ---------- Čenjo – komunjara ---------- */
+.kartica.kartica.tema-komunjara {
+  --boja-teksta: #ffd54a;
+  --kp: radial-gradient(circle at 50% 0%, #e2142e, #8b0012 75%);
+  --rub: conic-gradient(#ffd54a, #b3001b, #ffd54a, #6d0010, #ffd54a);
+  --znak: '☭';
+}
+
+.kartica.kartica.tema-komunjara .kartica-ukras {
+  color: #ffd54a;
+  opacity: 0.35;
+  font-size: 4em;
+}
+
+/* ---------- Kalac – Barcelona ---------- */
+.kartica.kartica.tema-barca {
+  --boja-teksta: #ffe066;
+  --kp: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, transparent 35%, rgba(0, 0, 0, 0.5) 100%),
+    repeating-linear-gradient(90deg, #004d98 0 26px, #a50044 26px 52px);
+  --rub: conic-gradient(#004d98, #a50044, #edbb00, #004d98, #a50044, #004d98);
+  --znak: '💙';
+}
+
+.kartica.kartica.tema-barca * {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- Mario – roza ---------- */
+.kartica.kartica.tema-roza {
+  --boja-teksta: #5a0038;
+  --kp: radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.6), transparent 40%),
+    linear-gradient(160deg, #ffd1ea, #ff8ccb 50%, #e8459a);
+  --rub: conic-gradient(#ff9ad5, #ffffff, #ff4fa3, #ffd1ea, #ff9ad5);
+  --znak: '💖';
+}
+
+/* ---------- Matija – Dinamo ---------- */
+.kartica.kartica.tema-dinamo {
+  --boja-teksta: #ffffff;
+  --kp: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.25), transparent 50%),
+    linear-gradient(160deg, #2a7be8, #0046ad 50%, #00266b);
+  --rub: conic-gradient(#ffffff, #0046ad, #7fb2ff, #0046ad, #ffffff);
+  --znak: '💙';
+}
+
+/* ---------- Martin – Leclerc (F1) ---------- */
+.kartica.kartica.tema-leclerc {
+  --boja-teksta: #ffffff;
+  --kp: repeating-conic-gradient(#111 0 25%, #fff 0 50%) 0 100% / 14px 14px repeat-x,
+    linear-gradient(160deg, #ff2a1a, #d40000 50%, #7a0000);
+  --rub: conic-gradient(#ffd700, #d40000, #ffffff, #d40000, #ffd700);
+  --znak: '🏎️';
+}
+
+.kartica.kartica.tema-leclerc .kartica-ukras {
+  bottom: 26px;
+}
+
+/* ---------- Borna – alkohol (pivo) ---------- */
+.kartica.kartica.tema-alkohol {
+  --boja-teksta: #3a1d00;
+  --kp: radial-gradient(ellipse 30% 9% at 20% 13%, #fffaf0 60%, transparent 62%),
+    radial-gradient(ellipse 30% 10% at 60% 12%, #fffaf0 60%, transparent 62%),
+    linear-gradient(#fffaf0 0 11%, transparent 11%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.55) 1.5px, transparent 2px) 0 0 / 14px 18px,
+    linear-gradient(#f9c74f, #e09f1f 55%, #a86a08);
+  --rub: conic-gradient(#fff3c4, #e09f1f, #a86a08, #fff3c4);
+  --znak: '🍺';
+}
+
+/* ---------- David – policija ---------- */
+.kartica.kartica.tema-policija {
+  --boja-teksta: #ffffff;
+  --kp: linear-gradient(90deg, #ff2a3d 0 50%, #2a6bff 50% 100%) 0 0 / 100% 6px no-repeat,
+    linear-gradient(160deg, #1d4ab0, #0b1f4d 60%, #06122e);
+  --rub: conic-gradient(#ff2a3d 0 25%, #2a6bff 0 50%, #ff2a3d 0 75%, #2a6bff 0);
+  --znak: '🚨';
+}
+
+.kartica.kartica.tema-policija.ima-efekt::before {
+  animation-duration: 1.2s;
+}
+
+/* ---------- Diego – Maradona (Argentina) ---------- */
+.kartica.kartica.tema-maradona {
+  --boja-teksta: #0b2a4a;
+  --kp: linear-gradient(to bottom, transparent 55%, rgba(11, 42, 74, 0.2)),
+    repeating-linear-gradient(90deg, #75aadb 0 24px, #ffffff 24px 48px);
+  --rub: conic-gradient(#75aadb, #ffffff, #f6b40e, #75aadb, #ffffff, #75aadb);
+  --znak: '⭐';
+}
+
+/* ---------- Dome – NK Bibinje ---------- */
+/* TODO: boje NK Bibinje su zasad privremene – Leon će javiti prave */
+.kartica.kartica.tema-bibinje {
+  --boja-teksta: #ffffff;
+  --kp: linear-gradient(160deg, transparent 0 62%, rgba(255, 255, 255, 0.18) 62% 70%, transparent 70%),
+    linear-gradient(160deg, #2a72d6, #123f8c);
+  --rub: conic-gradient(#ffffff, #2a72d6, #ffffff, #123f8c, #ffffff);
+  --znak: '⚽';
+}
+
+/* ---------- Ikić – direktor ---------- */
+.kartica.kartica.tema-direktor {
+  --boja-teksta: #f2f2f2;
+  --kp: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0 1px, transparent 1px 12px),
+    linear-gradient(160deg, #474d57, #23272e 60%, #121417);
+  --rub: conic-gradient(#c9a227, #3a3f47, #e8e8e8, #3a3f47, #c9a227);
+  --znak: '💼';
+}
+
+.kartica.kartica.tema-direktor .kartica-ime {
+  color: #f7d774;
+}
+
+/* ---------- Jure – Paški sokol ---------- */
+.kartica.kartica.tema-sokol {
+  --boja-teksta: #14304f;
+  --kp: linear-gradient(180deg, #8fd0ff 0%, #cfeaff 45%, #efe9dc 75%, #d4c9ae 100%);
+  --rub: conic-gradient(#8fd0ff, #ffffff, #7a5a2e, #8fd0ff);
+  --znak: '🦅';
+}
+
+/* ---------- Števanja – marihuana ---------- */
+.kartica.kartica.tema-marihuana {
+  --boja-teksta: #eaffd0;
+  --kp: radial-gradient(circle at 30% 20%, rgba(180, 255, 140, 0.25), transparent 45%),
+    radial-gradient(circle at 75% 80%, rgba(255, 255, 255, 0.12), transparent 40%),
+    linear-gradient(160deg, #3a9e3a, #1c5e1e 55%, #0d2e10);
+  --rub: conic-gradient(#e33b2e, #ffd400, #2e9e3a, #e33b2e, #ffd400, #2e9e3a, #e33b2e);
+  --znak: '🌿';
+}
+
+/* ---------- Ivan – vojnik (maskirna) ---------- */
+.kartica.kartica.tema-vojska {
+  --boja-teksta: #f1ecd4;
+  --kp:
+    radial-gradient(ellipse 34px 20px at 18% 22%, #2f3a1d 96%, transparent),
+    radial-gradient(ellipse 40px 24px at 78% 14%, #5b4a2e 96%, transparent),
+    radial-gradient(ellipse 30px 22px at 60% 40%, #2f3a1d 96%, transparent),
+    radial-gradient(ellipse 44px 22px at 24% 58%, #6f6a3a 96%, transparent),
+    radial-gradient(ellipse 36px 20px at 82% 66%, #2f3a1d 96%, transparent),
+    radial-gradient(ellipse 40px 22px at 40% 86%, #5b4a2e 96%, transparent),
+    radial-gradient(ellipse 26px 18px at 88% 92%, #6f6a3a 96%, transparent),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.35)),
+    #4b5a2a;
+  --rub: conic-gradient(#c8b98a, #4b5a2a, #2f3a1d, #8a7a4a, #c8b98a);
+  --znak: '🎖️';
+}
+
+.kartica.kartica.tema-vojska * {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* Vojnička pločica s imenom */
+.kartica.kartica.tema-vojska .kartica-ime {
+  align-self: center;
+  margin-top: 8px;
+  padding: 2px 14px;
+  border: 2px solid #c8b98a;
+  border-radius: 6px;
+  background: linear-gradient(#d9d4c2, #a9a38c);
+  color: #2b2b20;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.12em;
+}
